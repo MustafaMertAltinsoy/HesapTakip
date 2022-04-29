@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="userpanel_tutar" type="id"/>
+    <item name="userpanel_aciklama" type="id"/>
+    <item name="userpanel_tarih" type="id"/>
+    <item name="userpanel_TLImage" type="id"/>
+</resources>

@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.HesapTakip" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/arkaplan</item>
+        <item name="colorPrimaryDark">@color/darkArkaplan</item>
+        <item name="colorAccent">@color/teal_200</item>
+        <item name="titleTextColor">@color/black</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.HesapTakip.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Dark Theme olursa 17yi degistir -->
+    <style name="Theme.HesapTakip.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.HesapTakip.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>
