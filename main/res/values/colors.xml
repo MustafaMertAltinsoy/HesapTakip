@@ -11,11 +11,12 @@
     <color name="green">#00B812</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#0048FF</color>
-    <color name="arkaplan">#D8D8D8</color>
+    <color name="arkaplan">#F1F1F1</color>
     <color name="arkaplanToolbar">#FFFFFF</color>
     <color name="darkArkaplan">#7A7A7A</color>
     <color name="inputBg">#C9C9C9</color>
-    <color name="musteriBg">#ECECEC</color>
+    <color name="musteriBg">#E6E6E6</color>
     <color name="musteriEkleBg">#ECECEC</color>
     <color name="musteriEkleBtnBg">#0E52FF</color>
+    <color name="nothing">#00FFFFFF</color>
 </resources>

@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -16,33 +15,20 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Locale;
 
-public class HareketAddActivity extends AppCompatActivity {
+public class DuzenleActivity extends AppCompatActivity {
 
-    public static int islemSayisi;
+    public static String islemCode;
     public static int activeCode;
 
 
-    public static float tutarText = 0.0f;
+    public static Float tutarText = 0.0f;
 
     public static String aciklamaText;
     public static String tarihText;
     public static Boolean kaydetmeBoolBorcAlacak = true;
-
-    public void DilAyarla() {
-        String languageToLoad  = "tr"; // your language
-        Locale locale = new Locale(languageToLoad);
-        Locale.setDefault(locale);
-        Configuration config = new Configuration();
-        config.locale = locale;
-        getBaseContext().getResources().updateConfiguration(config,
-                getBaseContext().getResources().getDisplayMetrics());
-    }
 
     public void hareketleriYukle(){
         SharedPreferences musteriler = getSharedPreferences("preferences", Context.MODE_PRIVATE);
@@ -54,12 +40,28 @@ public class HareketAddActivity extends AppCompatActivity {
         userPanelName.setText(name);
 
         //VerileriDegismemesiniSaglama
-        TextView tarihText=(TextView) findViewById(R.id.tarihInput);
+        TextView tutarText = (TextView) findViewById(R.id.tutarTextEdit);
+        TextView tarihText=(TextView) findViewById(R.id.tarihInputEdit);
+        EditText aciklamaText = (EditText) findViewById(R.id.acıklamaInputEdit);
 
-        EditText aciklamaText = (EditText) findViewById(R.id.acıklamaInput);
 
-        tarihText.setText(this.tarihText);
-        aciklamaText.setText(this.aciklamaText);
+        if(this.aciklamaText == null){
+            this.aciklamaText = musteriler.getString("musteri_" + activeCode + "_islem_" + islemCode + "_aciklama", "").toString();
+        }else{
+            aciklamaText.setText(this.aciklamaText);
+        }
+
+        if(this.tarihText == null){
+            this.tarihText = musteriler.getString("musteri_" + activeCode + "_islem_" + islemCode + "_tarih", "").toString();
+        }else{
+            tarihText.setText(this.tarihText);
+        }
+
+        if(this.tutarText == 0){
+            this.tutarText=musteriler.getFloat("musteri_" + activeCode + "_islem_" + islemCode + "_tutar", 0);
+        }else{
+            tutarText.setText(this.tutarText + "");
+        }
     }
 
     private TextView mDisplayDate;
@@ -70,31 +72,27 @@ public class HareketAddActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_add_activity);
+        setContentView(R.layout.activity_duzenle);
         hareketleriYukle();
-        DilAyarla();
-
-        TextView text = (TextView) findViewById(R.id.tutarText);
-        text.setText(tutarText + "");
 
         if (tarihText == null) {
-            mDisplayDate = (TextView) findViewById(R.id.tarihInput);
+            mDisplayDate = (TextView) findViewById(R.id.tarihInputEdit);
 
             Calendar c = Calendar.getInstance();
 
             String[] months = {"Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"};
 
-            mDisplayDate.setText(c.get(Calendar.DAY_OF_MONTH) + " " + months[c.get(Calendar.MONTH)] + " " + c.get(Calendar.YEAR));
+            mDisplayDate.setText(mDisplayDate.getText());
         }
         borcOrAlacak=kaydetmeBoolBorcAlacak;
         BorcOrAlacakDegistir();
     }
 
     public void tutarEkle(View view) {
-        EditText aciklamaText = (EditText) findViewById(R.id.acıklamaInput);
+        EditText aciklamaText = (EditText) findViewById(R.id.acıklamaInputEdit);
         this.aciklamaText = aciklamaText.getText().toString();
-        ParaGiris.hangiYer=1;
-        startActivity(new Intent(HareketAddActivity.this,ParaGiris.class));
+        ParaGiris.hangiYer=2;
+        startActivity(new Intent(DuzenleActivity.this,ParaGiris.class));
         finish();
     }
 
@@ -159,54 +157,49 @@ public class HareketAddActivity extends AppCompatActivity {
     public void hareketKaydet(View view) {
         aciklamaText=null;
         tarihText=null;
-        tutarText=0;
+        tutarText=0f;
         SharedPreferences musteriler = getSharedPreferences("preferences", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = musteriler.edit();
 
-        TextView tutarText = (TextView) findViewById(R.id.tutarText);
+        TextView tutarText = (TextView) findViewById(R.id.tutarTextEdit);
         float tutar = Float.parseFloat(tutarText.getText().toString());
 
-        TextView tarihText=(TextView) findViewById(R.id.tarihInput);
+        TextView tarihText=(TextView) findViewById(R.id.tarihInputEdit);
         String tarih = tarihText.getText().toString();
 
-        EditText aciklamaText = (EditText) findViewById(R.id.acıklamaInput);
+        EditText aciklamaText = (EditText) findViewById(R.id.acıklamaInputEdit);
         String aciklama = aciklamaText.getText().toString();
 
-        islemSayisi++;
-        editor.putInt("musteri_" + activeCode + "_islemSayisi_", islemSayisi);
-        editor.putBoolean("musteri_" + activeCode + "_islem_" + islemSayisi + "_alacakORborc", borcOrAlacak);
-        editor.putBoolean("musteri_" + activeCode + "_islem_" + islemSayisi + "_isdeleted", false);
-        editor.putFloat("musteri_" + activeCode + "_islem_" + islemSayisi + "_tutar", tutar);
-        editor.putString("musteri_" + activeCode + "_islem_" + islemSayisi + "_tarih", tarih);
-        editor.putString("musteri_" + activeCode + "_islem_" + islemSayisi + "_aciklama", aciklama);
+        editor.putBoolean("musteri_" + activeCode + "_islem_" + islemCode + "_alacakORborc", borcOrAlacak);
+        editor.putFloat("musteri_" + activeCode + "_islem_" + islemCode + "_tutar", tutar);
+        editor.putString("musteri_" + activeCode + "_islem_" + islemCode + "_tarih", tarih);
+        editor.putString("musteri_" + activeCode + "_islem_" + islemCode + "_aciklama", aciklama);
 
         editor.commit();
 
-        startActivity(new Intent(HareketAddActivity.this, UserPanelActivity.class));
+        startActivity(new Intent(DuzenleActivity.this, UserPanelActivity.class));
         finish();
     }
 
     public void tarihSec(View view){
-        mDisplayDate = (TextView) findViewById(R.id.tarihInput);
+        mDisplayDate = (TextView) findViewById(R.id.tarihInputEdit);
 
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
         int month = cal.get(Calendar.MONTH);
         int day = cal.get(Calendar.DAY_OF_MONTH);
 
-        DatePickerDialog dialog = new DatePickerDialog(HareketAddActivity.this,
+        DatePickerDialog dialog = new DatePickerDialog(DuzenleActivity.this,
                 android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                 mDateSetListener,
                 year,month,day);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
 
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
-                Log.d(TAG, "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
-
                 String[] months = {"","Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"};
                 String date = day + " " + months[month] + " " + year;
                 tarihText = date;
@@ -216,8 +209,7 @@ public class HareketAddActivity extends AppCompatActivity {
     }
 
     public void geriGit(View view) {
-        startActivity(new Intent(HareketAddActivity.this, UserPanelActivity.class));
+        startActivity(new Intent(DuzenleActivity.this, UserPanelActivity.class));
         finish();
     }
-
 }

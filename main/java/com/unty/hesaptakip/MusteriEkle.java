@@ -35,7 +35,10 @@ public class MusteriEkle extends AppCompatActivity {
             String adSoyadCode = adSoyadSplit[0];*/
 
             MainActivity.musteriSayisi += 1;
-            editor.putString("musteri_" + MainActivity.musteriSayisi, adSoyadStr);
+            editor.putString("musteri_" + MainActivity.musteriSayisi + "_ad", adSoyadStr);
+            editor.putString("musteri_" + MainActivity.musteriSayisi + "_telefon", telefonStr);
+            editor.putString("musteri_" + MainActivity.musteriSayisi + "_aciklama", notStr);
+            editor.putBoolean("musteri_" + MainActivity.musteriSayisi + "_isdeleted", false);
 
             editor.putInt("musteriSayisi", MainActivity.musteriSayisi);
 

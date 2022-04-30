@@ -11,8 +11,7 @@
     <Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/arkaplan"
-        />
+        android:background="@color/arkaplan" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,7 +22,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:fontFamily="sans-serif-medium"
             android:text="Cari Takip"
             android:textAlignment="center"
@@ -31,21 +29,22 @@
             android:textSize="25sp" />
 
         <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_alignParentLeft="true"
-            android:scaleX="1.5"
-            android:scaleY="1.5"
-            android:src="@drawable/image_settings" />
+            android:background="@drawable/image_settings" />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="175dp"
         android:layout_height="70dp"
-        android:layout_centerVertical="true"
-        android:layout_margin="10dp"
         android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/mainmenubtn"
         android:onClick="kisilerAc">
 
@@ -56,11 +55,12 @@
             android:background="@null"
             android:scaleType="fitXY"
             android:src="@drawable/image_kisiler" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/kisilerImage"
             android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/kisilerImage"
             android:text="  Kişiler     "
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -70,12 +70,18 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/hareketlerBtn"
         android:layout_width="175dp"
         android:layout_height="70dp"
-        android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
-        android:background="@drawable/mainmenubtn">
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/mainmenubtn"
+        android:onClick="hareketler">
 
         <ImageButton
             android:id="@+id/hareketlerImage"
@@ -83,22 +89,24 @@
             android:layout_height="50dp"
             android:background="@null"
             android:scaleType="fitXY"
-            android:src="@drawable/image_hareketler"/>
+            android:src="@drawable/image_hareketler" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/hareketlerImage"
             android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/hareketlerImage"
             android:text=" Hareketler    "
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <Button
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:background="#00FFFFFF"
-            android:visibility="visible"/>
+            android:onClick="hareketler"
+            android:visibility="visible" />
 
 
     </RelativeLayout>

@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HesapTakip">
         <activity
+            android:name=".KisiyiDuzenleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DuzenleActivity"
+            android:exported="false" />
+        <activity
             android:name=".ParaGiris"
             android:exported="false" />
         <activity

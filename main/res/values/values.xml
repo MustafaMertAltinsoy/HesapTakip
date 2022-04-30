@@ -4,4 +4,6 @@
     <item name="userpanel_aciklama" type="id"/>
     <item name="userpanel_tarih" type="id"/>
     <item name="userpanel_TLImage" type="id"/>
+    <item name="userpanel_ucnokta" type="id"/>
+    <item name="kisilerpanel_btn" type="id"/>
 </resources>

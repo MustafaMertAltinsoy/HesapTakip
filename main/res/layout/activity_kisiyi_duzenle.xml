@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MusteriEkle">
+    tools:context=".KisiyiDuzenleActivity">
 
     <Toolbar
         android:id="@+id/kisiEkleToolbar"
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:fontFamily="sans-serif-medium"
-            android:text="Kişi Ekle"
+            android:text="Kişi Düzenle"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="25sp" />
@@ -76,52 +76,52 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/adSoyadInput"
+                    android:id="@+id/adSoyadInputEdit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/AdSoyad"
-                    android:maxLength="31"
                     android:layout_toRightOf="@id/adSoyadImage"
                     android:hint="@string/duzenleDokun"
+                    android:maxLength="31"
                     android:text="" />
 
             </RelativeLayout>
 
-           <!-- <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/kisiekleinputs">
+            <!-- <RelativeLayout
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_margin="10dp"
+                 android:background="@drawable/kisiekleinputs">
 
-                <ImageButton
-                    android:id="@+id/firmaImage"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/image_user" />
+                 <ImageButton
+                     android:id="@+id/firmaImage"
+                     android:layout_width="50dp"
+                     android:layout_height="50dp"
+                     android:layout_marginTop="10dp"
+                     android:background="@null"
+                     android:scaleType="fitXY"
+                     android:src="@drawable/image_user" />
 
-                <TextView
-                    android:id="@+id/firma"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/firmaImage"
-                    android:text="Firma"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                 <TextView
+                     android:id="@+id/firma"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_toRightOf="@id/firmaImage"
+                     android:text="Firma"
+                     android:textColor="@color/black"
+                     android:textSize="20sp"
+                     android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/firmaInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/firma"
-                    android:layout_toRightOf="@id/firmaImage"
-                    android:hint="@string/duzenleDokun"
-                    android:text="" />
+                 <EditText
+                     android:id="@+id/firmaInput"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@id/firma"
+                     android:layout_toRightOf="@id/firmaImage"
+                     android:hint="@string/duzenleDokun"
+                     android:text="" />
 
-            </RelativeLayout>-->
+             </RelativeLayout>-->
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -149,13 +149,13 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/telefonInput"
+                    android:id="@+id/telefonInputEdit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/telefon"
-                    android:maxLength="31"
                     android:layout_toRightOf="@id/telefonImage"
                     android:hint="@string/duzenleDokun"
+                    android:maxLength="31"
                     android:text="" />
 
             </RelativeLayout>
@@ -186,13 +186,13 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/notInput"
+                    android:id="@+id/notInputEdit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/not"
-                    android:maxLength="31"
                     android:layout_toRightOf="@id/notImage"
                     android:hint="@string/duzenleDokun"
+                    android:maxLength="31"
                     android:text="" />
 
             </RelativeLayout>
@@ -201,14 +201,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="Ekle"
-                android:textColor="@color/white"
                 android:background="@drawable/eklebg"
-                android:onClick="musteriEkle"/>
+                android:onClick="musteriEkle"
+                android:text="Düzenle"
+                android:textColor="@color/white" />
 
 
         </LinearLayout>
-
     </ScrollView>
 
 </RelativeLayout>

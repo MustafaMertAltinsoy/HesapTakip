@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 public class ParaGiris extends AppCompatActivity {
 
+    public static int hangiYer;//1==Add//2==Edit
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,28 +34,26 @@ public class ParaGiris extends AppCompatActivity {
     private String sagParaStr = "";
 
     public void Kaydet(int para){
-        if(!hangiTarafSecili) {//Sol
-            if (para < 0 && solParaStr.length() > 0) {
+        if (!hangiTarafSecili) {//Sol
+            if (para < 0 && solParaStr.length() > 0 && solParaStr != "") {
                 solParaStr = solParaStr.substring(0, solParaStr.length() - 1);
             }
 
-            if(para >= 0 && solParaStr.length() < 7){
+            if (para >= 0 && solParaStr.length() < 7) {
                 solParaStr += para;
             }
             TextView solTaraf = (TextView) findViewById(R.id.para_SolTaraf);
             solTaraf.setText(solParaStr);
         }
-        if(hangiTarafSecili) {//Sag
-
-            if (para < 0 && sagParaStr.length() > 0) {
+        if (hangiTarafSecili) {//Sag
+            if (para < 0 && sagParaStr.length() > 0 && sagParaStr != "") {
                 sagParaStr = sagParaStr.substring(0, sagParaStr.length() - 1);
             }
-            if(para >= 0 && sagParaStr.length() < 2){
+            if (para >= 0 && sagParaStr.length() < 2) {
                 sagParaStr += para;
             }
             TextView sagTaraf = (TextView) findViewById(R.id.para_SagTaraf);
             sagTaraf.setText(sagParaStr);
-
         }
     }
     public void para_0(View view) {
@@ -103,22 +102,33 @@ public class ParaGiris extends AppCompatActivity {
     private float sol;
     private float sag;
     public void para_Ok(View view) {
-        if(sagParaStr.length() == 1){
-            sagParaStr+="0";
+        if (sagParaStr.length() == 1) {
+            sagParaStr += "0";
         }
-        if(solParaStr==""){
-            solParaStr="0";
+        try {
+            sol = Float.parseFloat(solParaStr);
+        } catch (NumberFormatException exp) {
+            sol = 0;
         }
-        if(sagParaStr==""){
-            sagParaStr="0";
+        try {
+            sag = Float.parseFloat(sagParaStr);
+        } catch (NumberFormatException exp) {
+            sag = 0;
         }
-        sol = Float.parseFloat(solParaStr);
-        sag = Float.parseFloat(sagParaStr);
 
-        float toplamTutar = sol + (sag/100);
-        HareketAddActivity.tutarText = toplamTutar;
+        if(hangiYer == 1) {
+            float toplamTutar = sol + (sag / 100);
+            HareketAddActivity.tutarText = toplamTutar;
 
-        startActivity(new Intent(ParaGiris.this,HareketAddActivity.class));
-        finish();
+            startActivity(new Intent(ParaGiris.this, HareketAddActivity.class));
+            finish();
+        }
+        if(hangiYer == 2) {
+            float toplamTutar = sol + (sag / 100);
+            DuzenleActivity.tutarText = toplamTutar;
+
+            startActivity(new Intent(ParaGiris.this, DuzenleActivity.class));
+            finish();
+        }
     }
 }

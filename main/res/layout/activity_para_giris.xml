@@ -29,13 +29,11 @@
             android:textSize="25sp" />
 
         <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_alignParentLeft="true"
-            android:scaleX="1.3"
-            android:scaleY="1.3"
-            android:src="@drawable/image_back"
-            android:onClick="geriGit"/>
+            android:onClick="geriGit"
+            android:background="@drawable/image_back" />
 
 
     </RelativeLayout>
@@ -83,156 +81,162 @@
 
     </LinearLayout>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tutarlar"
-        android:layout_margin="20dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="40dp">
+        android:layout_below="@id/tutarlar">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="40dp">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:orientation="vertical">
 
-                <Button
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:background="@drawable/para_buttons"
-                    android:onClick="para_1"
-                    android:text="1"
-                    android:textSize="50sp" />
+                    android:layout_marginTop="20dp">
 
-                <Button
-                    android:layout_width="wrap_content"
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:background="@drawable/para_buttons"
+                        android:onClick="para_1"
+                        android:text="1"
+                        android:textSize="50sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/para_buttons"
+                        android:onClick="para_2"
+                        android:text="2"
+                        android:textSize="50sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/para_buttons"
+                        android:onClick="para_3"
+                        android:text="3"
+                        android:textSize="50sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/para_buttons"
-                    android:onClick="para_2"
-                    android:text="2"
-                    android:textSize="50sp" />
+                    android:layout_marginTop="20dp">
 
-                <Button
-                    android:layout_width="wrap_content"
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:background="@drawable/para_buttons"
+                        android:onClick="para_4"
+                        android:text="4"
+                        android:textSize="50sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/para_buttons"
+                        android:onClick="para_5"
+                        android:text="5"
+                        android:textSize="50sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/para_buttons"
+                        android:onClick="para_6"
+                        android:text="6"
+                        android:textSize="50sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:background="@drawable/para_buttons"
-                    android:onClick="para_3"
-                    android:text="3"
-                    android:textSize="50sp" />
-            </RelativeLayout>
+                    android:layout_marginTop="20dp">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:background="@drawable/para_buttons"
+                        android:onClick="para_7"
+                        android:text="7"
+                        android:textSize="50sp" />
 
-                <Button
-                    android:layout_width="wrap_content"
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/para_buttons"
+                        android:onClick="para_8"
+                        android:text="8"
+                        android:textSize="50sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/para_buttons"
+                        android:onClick="para_9"
+                        android:text="9"
+                        android:textSize="50sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:background="@drawable/para_buttons"
-                    android:onClick="para_4"
-                    android:text="4"
-                    android:textSize="50sp" />
+                    android:layout_marginTop="20dp">
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/para_buttons"
-                    android:onClick="para_5"
-                    android:text="5"
-                    android:textSize="50sp" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:background="@drawable/para_buttons"
+                        android:onClick="para_X"
+                        android:text="X"
+                        android:textSize="50sp" />
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:background="@drawable/para_buttons"
-                    android:onClick="para_6"
-                    android:text="6"
-                    android:textSize="50sp" />
-            </RelativeLayout>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/para_buttons"
+                        android:onClick="para_0"
+                        android:text="0"
+                        android:textSize="50sp" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/para_buttons"
+                        android:onClick="para_Ok"
+                        android:text="Ok"
+                        android:textSize="50sp" />
+                </RelativeLayout>
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:background="@drawable/para_buttons"
-                    android:onClick="para_7"
-                    android:text="7"
-                    android:textSize="50sp" />
+            </LinearLayout>
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/para_buttons"
-                    android:onClick="para_8"
-                    android:text="8"
-                    android:textSize="50sp" />
+        </RelativeLayout>
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:background="@drawable/para_buttons"
-                    android:onClick="para_9"
-                    android:text="9"
-                    android:textSize="50sp" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:background="@drawable/para_buttons"
-                    android:onClick="para_X"
-                    android:text="X"
-                    android:textSize="50sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/para_buttons"
-                    android:onClick="para_0"
-                    android:text="0"
-                    android:textSize="50sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:background="@drawable/para_buttons"
-                    android:onClick="para_Ok"
-                    android:text="Ok"
-                    android:textSize="50sp" />
-            </RelativeLayout>
-
-        </LinearLayout>
-
-    </RelativeLayout>
+    </ScrollView>
 
 
 </RelativeLayout>
